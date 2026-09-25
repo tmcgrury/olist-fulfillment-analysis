@@ -329,6 +329,10 @@
   main_category / order_weight_kg from fact_orders (one definition, in 03). Q7 results identical.
   Removed unused dim_product load. User updated Power BI data source paths; numbers match.
   README.md reviewed and APPROVED by user.
+- 2026-09-24: PHASE 12 COMPLETE. Published publicly with GitHub Desktop:
+  https://github.com/tmcgrury/olist-fulfillment-analysis
+  Verified: 55 files committed, 0 data CSVs; README renders with both images; all 10 linked
+  files return HTTP 200; findings section-5 anchor works. ALL 12 PHASES COMPLETE.
 
 ## Definitions
 - Delivery time = purchase date -> delivered-to-customer date
