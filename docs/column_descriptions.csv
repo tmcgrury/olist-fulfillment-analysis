@@ -1,0 +1,53 @@
+table,column,description,known_issues
+orders,order_id,The unique ID for each order,
+orders,customer_id,ID of the customer record for this order (links to customers). Not a name,"A new customer_id is created for every order - use customers.customer_unique_id to identify the person"
+orders,order_status,"Current stage of the order: created, approved, invoiced, processing, shipped, delivered, canceled or unavailable","8 orders marked delivered have no delivery date; 6 orders not marked delivered have one"
+orders,order_purchase_timestamp,Date and time the customer placed the order,
+orders,order_approved_at,Date and time the order was approved,160 blank (0.16%)
+orders,order_delivered_carrier_date,Date and time the seller handed the order to the carrier,1783 blank (orders that never shipped)
+orders,order_delivered_customer_date,Date and time the order was delivered to the customer,"2965 blank (mostly undelivered orders); 28 very slow orders recorded on 2017-09-19 look like a bulk record update"
+orders,order_estimated_delivery_date,Date the order was promised to be delivered to the customer,"Always at 00:00 (date only) - compare by calendar day"
+customers,customer_id,Customer record ID. A new ID is created for every order (one row per order),Not the real person - use customer_unique_id to count people
+customers,customer_unique_id,ID of the actual person. Same across all their orders,
+customers,customer_zip_code_prefix,First 5 digits of the customer's zip code,157 prefixes (278 customers) not found in geolocation
+customers,customer_city,Customer's city (lowercase),
+customers,customer_state,Customer's state (2-letter code),
+order_items,order_id,Order this item belongs to (links to orders),
+order_items,order_item_id,Item's position within the order (1; 2; 3...),Not a product ID - only unique together with order_id
+order_items,product_id,Product sold (links to products),
+order_items,seller_id,Seller who sold this item (links to sellers),1278 orders have items from more than one seller
+order_items,shipping_limit_date,Deadline for the seller to hand the item to the carrier,
+order_items,price,Item price (Brazilian reais),
+order_items,freight_value,Shipping charge for this item (Brazilian reais),
+order_payments,order_id,Order this payment belongs to (links to orders),
+order_payments,payment_sequential,Payment's position within the order (1; 2; 3...),Only unique together with order_id
+order_payments,payment_type,How the payment was made (e.g. credit_card; boleto; voucher),
+order_payments,payment_installments,Number of installments the payment was split into,
+order_payments,payment_value,Amount paid in this payment (Brazilian reais),
+order_reviews,review_id,Review ID,Not unique alone - 789 reviews are attached to more than one order. Key = review_id + order_id
+order_reviews,order_id,Order this review is attached to (links to orders),547 orders have 2-3 reviews
+order_reviews,review_score,Customer rating from 1 (worst) to 5 (best),
+order_reviews,review_comment_title,Optional review title written by the customer (Portuguese),Mostly blank - optional field
+order_reviews,review_comment_message,Optional review text written by the customer (Portuguese),Mostly blank - optional field
+order_reviews,review_creation_date,Date the review survey was sent to the customer,
+order_reviews,review_answer_timestamp,Date and time the customer answered the survey,
+products,product_id,Product ID,
+products,product_category_name,Product category (Portuguese),610 blank; 2 categories missing from translation table
+products,product_name_lenght,Number of characters in the product name,Column name misspelled ('lenght')
+products,product_description_lenght,Number of characters in the product description,Column name misspelled ('lenght')
+products,product_photos_qty,Number of product photos,
+products,product_weight_g,Product weight in grams,
+products,product_length_cm,Product length in centimeters,
+products,product_height_cm,Product height in centimeters,
+products,product_width_cm,Product width in centimeters,
+sellers,seller_id,Seller ID,
+sellers,seller_zip_code_prefix,First 5 digits of the seller's zip code,7 prefixes not found in geolocation
+sellers,seller_city,Seller's city,
+sellers,seller_state,Seller's state (2-letter code),
+geolocation,geolocation_zip_code_prefix,First 5 digits of a zip code,Many rows per prefix - not a unique key
+geolocation,geolocation_lat,Latitude of a point in this zip area,
+geolocation,geolocation_lng,Longitude of a point in this zip area,
+geolocation,geolocation_city,City name for this point,
+geolocation,geolocation_state,State (2-letter code),
+category_translation,product_category_name,Category name in Portuguese,
+category_translation,product_category_name_english,Category name in English,Missing pc_gamer and portateis_cozinha_e_preparadores_de_alimentos

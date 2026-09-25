@@ -1,0 +1,4 @@
+min_orders,sellers,top_10pct_sellers,share_of_orders_%,share_of_late_handoffs_%,median_seller_late_rate_%,sellers_over_20pct_late
+20,792,79,33.8,58.1,4.9,113
+50,415,42,29.0,51.1,4.9,65
+100,205,20,21.7,44.1,5.0,26

@@ -1,0 +1,18 @@
+# Data files are not published (see README: download the dataset from Kaggle).
+# The folders are kept with empty .gitkeep files so the structure stays visible.
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Per-order data produced during early exploration
+exploration/outputs/*.csv
+
+# Temporary files created while Excel has a workbook open
+~$*
+
+# Python cache
+__pycache__/
+*.pyc
